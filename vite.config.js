@@ -1,11 +1,10 @@
 import { defineConfig } from "vite";
 // SWC is a faster javascript transformer than Babel
 import react from "@vitejs/plugin-react-swc";
-import sass from "vite-plugin-sass";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), sass()],
+	plugins: [react()],
 	server: {
 		// open: true,
 		port: 5555,
