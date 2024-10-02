@@ -8,8 +8,8 @@
 
     # netlify server port
     port         = 5555
+    targetPort   = 8888
     # webpack / react port
-    # targetPort = 5555
 
 [[edge_functions]]
   function = "index"
@@ -23,7 +23,7 @@
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
     [headers.values]
-    Access-Control-Allow-Origin = "http://localhost:8585"
+    Access-Control-Allow-Origin = "http://localhost:6666"
 
 [[redirects]]
   from = "/*"
