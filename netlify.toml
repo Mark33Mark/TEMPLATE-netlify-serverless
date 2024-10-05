@@ -7,29 +7,32 @@
     autoLaunch  = true
 
     # netlify server port
-    port         = 5555
-    targetPort   = 8888
-    # webpack / react port
+    port = 5555
+    # targetPort = 5555
 
-# [[edge_functions]]
-#  function = "index"
-#  path = "/*"
+[[edge_functions]]
+  function = "index"
+  path = "/*"
 
-# [functions]
-  #  external_node_modules = ["express"]
-  #  node_bundler = "esbuild"
+[functions]
+    external_node_modules = ["express"]
+    node_bundler = "esbuild"
     
-# [[headers]]
+#    [functions.hello]
+#        included_files = ["templates/hello.hbs"]
+
+[[headers]]
   # Define which paths this specific [[headers]] block will cover.
-  # for = "/*"
-  #  [headers.values]
-  #  Access-Control-Allow-Origin = "http://localhost:6666"
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "http://localhost:5555"
 
-# [[redirects]]
-#  from = "/*"
-#  to = "/"
-#  status = 200
+[[redirects]]
+    from        = "/hello"
+    to          = "/.netlify/functions/hello"
+    status      = 200
+    force       = true
 
-    # force = true set in redirect to send all requests to your function even if content is not found.
+    # force = true set in redirect to send all requests to your function even if content is found.
     # As my root directory (public) has a index.html file, this file is served first without the 'force'
     # setting to true.

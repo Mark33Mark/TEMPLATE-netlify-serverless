@@ -1,4 +1,6 @@
 export default async (req, context) => {
+
+	console.log("context = ", context.cookies)
 	if (context.cookies.get("chocolate")) {
 		return new Response("Sorry, no more cookies for you");
 	}
