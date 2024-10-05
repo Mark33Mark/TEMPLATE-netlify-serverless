@@ -10,9 +10,9 @@
     port = 5555
     # targetPort = 5555
 
-[[edge_functions]]
-  function = "index"
-  path = "/*"
+# [[edge_functions]]
+#  function = "index"
+#  path = "/*"
 
 [functions]
     external_node_modules = ["express"]
@@ -27,12 +27,13 @@
     [headers.values]
     Access-Control-Allow-Origin = "http://localhost:5555"
 
-[[redirects]]
-    from        = "/hello"
-    to          = "/.netlify/functions/hello"
-    status      = 200
-    force       = true
+# redirects not needed in Netlify v2.0
+# [[redirects]]
+    # from        = "/hello"
+    # to          = "/.netlify/functions/hello"
+    # status      = 200
+    # force       = true
 
-    # force = true set in redirect to send all requests to your function even if content is found.
+    # force = true set in redirect to send all requests to your function even if content is not found.
     # As my root directory (public) has a index.html file, this file is served first without the 'force'
     # setting to true.

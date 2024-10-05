@@ -1,7 +1,8 @@
 export default async (req, context) => {
 
-	console.log("context = ", context.cookies)
 	if (context.cookies.get("chocolate")) {
+		// toggle cookie, so each time page refreshed cookie issued or removed
+		context.cookies.delete("chocolate");
 		return new Response("Sorry, no more cookies for you");
 	}
 
